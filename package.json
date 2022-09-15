@@ -1,13 +1,13 @@
 {
   "name": "back",
   "version": "1.0.0",
-  "description": "back proyect  cv",
+  "description": "back proyect",
   "main": "App.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\"  && exit 1"
   },
-  "author": "urias",
+  "author": "carlos",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.1",

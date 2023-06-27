@@ -2,53 +2,53 @@ import { Model, DataTypes } from "sequelize";
 import { DatabaseConfig } from "../config/database.js";
 
 
-export class FormventaModel extends Model { }
+export class SeguimientoModel extends Model { }
 
-FormventaModel.init({
+SeguimientoModel.init({
     id: {
         type: DataTypes.INTEGER,
         allowNull: false,
         primaryKey: true,
         autoIncrement: true
     },
+    dispositivo: {
+        type: DataTypes.STRING(25),
+        allowNull: false,
+    },
+    estatus: {
+        type: DataTypes.STRING(25),
+        allowNull: false,
+    },
+    actFijo: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+    },
+    numSerie: {
+        type: DataTypes.STRING(25),
+        allowNull: false,
+    },
+    modelo: {
+        type: DataTypes.STRING(25),
+        allowNull: false,
+    },
+    almacenamiento: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+    },
+    galodep: {
+        type: DataTypes.STRING(25),
+        allowNull: false,  
+    },
+    nomResp: {
+        type: DataTypes.STRING(50),
+        allowNull: false,
+    },
     fecha: {
         type: DataTypes.STRING(25),
         allowNull: false,
     },
-    sucursal: {
-        type: DataTypes.STRING(25),
-        allowNull: false,
-    },
-    ventaDia: {
-        type: DataTypes.DECIMAL,
-        allowNull: false,
-    },
-    recargas: {
-        type: DataTypes.DECIMAL,
-        allowNull: false,
-    },
-    servicios: {
-        type: DataTypes.DECIMAL,
-        allowNull: false,
-    },
-    tarjeta: {
-        type: DataTypes.DECIMAL,
-        allowNull: false,
-    },
-    otrosGast: {
-        type: DataTypes.DECIMAL,
-        allowNull: false,
-    },
-    dolares: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-    },
-    total: {
-        type: DataTypes.DECIMAL,
-        allowNull: false,
-    },
 }, {
     sequelize: DatabaseConfig,
-    tableName: 'contconsult',
+    tableName: 'seguimiento',
     timestamps: false,
 })

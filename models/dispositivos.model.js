@@ -2,37 +2,45 @@ import { Model, DataTypes } from "sequelize";
 import { DatabaseConfig } from "../config/database.js";
 
 
-export class TemphumedModel extends Model { }
+export class DispositivosModel extends Model { }
 
-TemphumedModel.init({
+DispositivosModel.init({
     id: {
         type: DataTypes.INTEGER,
         allowNull: false,
         primaryKey: true,
         autoIncrement: true
     },
-    sucursal: {
+    actFijo: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+    },
+    dispositivo: {
         type: DataTypes.STRING(25),
         allowNull: false,
     },
-    empleado: {
-        type: DataTypes.STRING(100),
+    numSerie: {
+        type: DataTypes.STRING(25),
+        allowNull: false,
+    },
+    marca: {
+        type: DataTypes.STRING(25),
+        allowNull: false,
+    },
+    galodep: {
+        type: DataTypes.STRING(25),
+        allowNull: false,
+    },
+    nomEquipo: {
+        type: DataTypes.STRING(25),
         allowNull: false,
     },
     fecha: {
         type: DataTypes.STRING(25),
         allowNull: false,
     },
-    temperaturaLec: {
-        type: DataTypes.DECIMAL,
-        allowNull: false,
-    },
-    humedadLec: {
-        type: DataTypes.DECIMAL,
-        allowNull: false,
-    },
 }, {
     sequelize: DatabaseConfig,
-    tableName: 'temphumed',
+    tableName: 'dispositivos',
     timestamps: false,
 })

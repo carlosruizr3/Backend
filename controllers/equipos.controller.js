@@ -1,10 +1,10 @@
-import { LimpymantQueries } from "../queries/limpymant.queries";
+import { EquiposQueries } from "../queries/equipos.queries.js";
 
-class LimpymantController {
-    async createLimpymant(request, response) {
+class EquiposController {
+    async createEquipos(request, response) {
         const body = request.body;
         console.log(body)
-        const query = await LimpymantQueries.create(body);
+        const query = await EquiposQueries.create(body);
         if (query) {
             return response.status(200).json({ ok: true, data: query })
         } else {
@@ -12,10 +12,10 @@ class LimpymantController {
         }
     }
 
-    async deleteLimpymant(request, response) {
+    async deleteEquipos(request, response) {
         const id = request.params.id
         console.log(id)
-        const query = await LimpymantQueries.delete({
+        const query = await EquiposQueries.delete({
             id: id
         });
         if (query) {
@@ -25,10 +25,10 @@ class LimpymantController {
         }
     }
 
-    async updateLimpymant(request, response) {
+    async updateEquipos(request, response) {
         const body = request.body;
         const id = request.params.id
-        const query = await LimpymantQueries.update(body, {
+        const query = await EquiposQueries.update(body, {
             id: id
         })
         if (query.ok) {
@@ -38,10 +38,10 @@ class LimpymantController {
         }
     }
 
-    async findLimpymant(request, response) {
+    async findEquipos(request, response) {
         const body = request.body
         console.log(body)
-        const query = await LimpymantQueries.find();
+        const query = await EquiposQueries.find();
         if (query.ok) {
             return response.status(200).json({ ok: true, data: query.data })
         } else {
@@ -49,10 +49,10 @@ class LimpymantController {
         }
     }
 
-    async findOneLimpymant(request, response) {
+    async findOneEquipos(request, response) {
         const id = request.params.id
         console.log(id)
-        const query = await LimpymantQueries.findOne({
+        const query = await EquiposQueries.findOne({
             id: id
         })
         if (query.ok) {
@@ -63,4 +63,4 @@ class LimpymantController {
     }
 }
 
-export const limpymantController = new LimpymantController();
+export const equiposController = new EquiposController();

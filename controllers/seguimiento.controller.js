@@ -1,11 +1,10 @@
-import { ExperienceQueries } from "../queries/experience.queries.js";
+import { SeguimientoQueries } from "../queries/seguimiento.queries.js";
 
-class ExperienceController {
-    async createExperience(request, response) {
+class SeguimientoController {
+    async createSeguimiento(request, response) {
         const body = request.body;
         console.log(body)
-        const query = await ExperienceQueries.create(body);
-
+        const query = await SeguimientoQueries.create(body);
         if (query) {
             return response.status(200).json({ ok: true, data: query })
         } else {
@@ -13,13 +12,12 @@ class ExperienceController {
         }
     }
 
-    async deleteExperience(request, response) {
+    async deleteSeguimiento(request, response) {
         const id = request.params.id
         console.log(id)
-        const query = await ExperienceQueries.delete({
+        const query = await SeguimientoQueries.delete({
             id: id
         });
-
         if (query) {
             return response.status(200).json({ ok: true, data: query })
         } else {
@@ -27,10 +25,10 @@ class ExperienceController {
         }
     }
 
-    async updateExperience(request, response) {
+    async updateSeguimiento(request, response) {
         const body = request.body;
         const id = request.params.id
-        const query = await ExperienceQueries.update(body, {
+        const query = await SeguimientoQueries.update(body, {
             id: id
         })
         if (query.ok) {
@@ -40,10 +38,10 @@ class ExperienceController {
         }
     }
 
-    async findExperience(request, response) {
+    async findSeguimiento(request, response) {
         const body = request.body
         console.log(body)
-        const query = await ExperienceQueries.find();
+        const query = await SeguimientoQueries.find();
         if (query.ok) {
             return response.status(200).json({ ok: true, data: query.data })
         } else {
@@ -51,10 +49,10 @@ class ExperienceController {
         }
     }
 
-    async findOneExperience(request, response) {
+    async findOneSeguimiento(request, response) {
         const id = request.params.id
         console.log(id)
-        const query = await ExperienceQueries.findOne({
+        const query = await SeguimientoQueries.findOne({
             id: id
         })
         if (query.ok) {
@@ -65,4 +63,4 @@ class ExperienceController {
     }
 }
 
-export const experienceController = new ExperienceController();
+export const seguimientoController = new SeguimientoController();

@@ -1,11 +1,10 @@
-import { EducationQueries } from "../queries/education.queries.js";
+import { SupervisorQueries } from "../queries/supervisor.queries.js";
 
-class EducationController {
-    async createEducation(request, response) {
+class SupervisorController {
+    async createSupervisor(request, response) {
         const body = request.body;
         console.log(body)
-        const query = await EducationQueries.create(body);
-
+        const query = await SupervisorQueries.create(body);
         if (query) {
             return response.status(200).json({ ok: true, data: query })
         } else {
@@ -13,13 +12,12 @@ class EducationController {
         }
     }
 
-    async deleteEducation(request, response) {
+    async deleteSupervisor(request, response) {
         const id = request.params.id
         console.log(id)
-        const query = await EducationQueries.delete({
+        const query = await SupervisorQueries.delete({
             id: id
         });
-
         if (query) {
             return response.status(200).json({ ok: true, data: query })
         } else {
@@ -27,10 +25,10 @@ class EducationController {
         }
     }
 
-    async updateEducation(request, response) {
+    async updateSupervisor(request, response) {
         const body = request.body;
         const id = request.params.id
-        const query = await EducationQueries.update(body, {
+        const query = await SupervisorQueries.update(body, {
             id: id
         })
         if (query.ok) {
@@ -40,10 +38,10 @@ class EducationController {
         }
     }
 
-    async findEducation(request, response) {
+    async findSupervisor(request, response) {
         const body = request.body
         console.log(body)
-        const query = await EducationQueries.find();
+        const query = await SupervisorQueries.find();
         if (query.ok) {
             return response.status(200).json({ ok: true, data: query.data })
         } else {
@@ -51,10 +49,10 @@ class EducationController {
         }
     }
 
-    async findOneEducation(request, response) {
+    async findOneSupervisor(request, response) {
         const id = request.params.id
         console.log(id)
-        const query = await EducationQueries.findOne({
+        const query = await SupervisorQueries.findOne({
             id: id
         })
         if (query.ok) {
@@ -65,4 +63,4 @@ class EducationController {
     }
 }
 
-export const educationController = new EducationController();
+export const supervisorController = new SupervisorController();

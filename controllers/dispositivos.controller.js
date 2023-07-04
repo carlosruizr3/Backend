@@ -1,10 +1,10 @@
-import { TempdiapersQueries } from "../queries/tempdiapers.queries";
+import { DispositivosQueries } from "../queries/dispositivos.queries.js";
 
-class TempdiapersController {
-    async createTempdiapers(request, response) {
+class DispositivosController {
+    async createDispositivos(request, response) {
         const body = request.body;
         console.log(body)
-        const query = await TempdiapersQueries.create(body);
+        const query = await DispositivosQueries.create(body);
         if (query) {
             return response.status(200).json({ ok: true, data: query })
         } else {
@@ -12,10 +12,10 @@ class TempdiapersController {
         }
     }
 
-    async deleteTempdiapers(request, response) {
+    async deleteDispositivos(request, response) {
         const id = request.params.id
         console.log(id)
-        const query = await TempdiapersQueries.delete({
+        const query = await DispositivosQueries.delete({
             id: id
         });
         if (query) {
@@ -25,10 +25,10 @@ class TempdiapersController {
         }
     }
 
-    async updateTempdiapers(request, response) {
+    async updateDispositivos(request, response) {
         const body = request.body;
         const id = request.params.id
-        const query = await TempdiapersQueries.update(body, {
+        const query = await DispositivosQueries.update(body, {
             id: id
         })
         if (query.ok) {
@@ -38,10 +38,10 @@ class TempdiapersController {
         }
     }
 
-    async findTempdiapers(request, response) {
+    async findDispositivos(request, response) {
         const body = request.body
         console.log(body)
-        const query = await TempdiapersQueries.find();
+        const query = await DispositivosQueries.find();
         if (query.ok) {
             return response.status(200).json({ ok: true, data: query.data })
         } else {
@@ -49,10 +49,10 @@ class TempdiapersController {
         }
     }
 
-    async findOneTempdiapers(request, response) {
+    async findOneDispositivos(request, response) {
         const id = request.params.id
         console.log(id)
-        const query = await TempdiapersQueries.findOne({
+        const query = await DispositivosQueries.findOne({
             id: id
         })
         if (query.ok) {
@@ -63,4 +63,4 @@ class TempdiapersController {
     }
 }
 
-export const tempdiapersController = new TempdiapersController();
+export const dispositivosController = new DispositivosController();

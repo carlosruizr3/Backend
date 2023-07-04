@@ -1,10 +1,10 @@
-import { TemphumedQueries } from "../queries/temphumed.queries";
+import { GaleriasQueries } from "../queries/galerias.queries.js";
 
-class TemphumedController {
-    async createTemphumed(request, response) {
+class GaleriasController {
+    async createGalerias(request, response) {
         const body = request.body;
         console.log(body)
-        const query = await TemphumedQueries.create(body);
+        const query = await GaleriasQueries.create(body);
         if (query) {
             return response.status(200).json({ ok: true, data: query })
         } else {
@@ -12,10 +12,10 @@ class TemphumedController {
         }
     }
 
-    async deleteTemphumed(request, response) {
+    async deleteGalerias(request, response) {
         const id = request.params.id
         console.log(id)
-        const query = await TemphumedQueries.delete({
+        const query = await GaleriasQueries.delete({
             id: id
         });
         if (query) {
@@ -25,10 +25,10 @@ class TemphumedController {
         }
     }
 
-    async updateTemphumed(request, response) {
+    async updateGalerias(request, response) {
         const body = request.body;
         const id = request.params.id
-        const query = await TemphumedQueries.update(body, {
+        const query = await GaleriasQueries.update(body, {
             id: id
         })
         if (query.ok) {
@@ -38,10 +38,10 @@ class TemphumedController {
         }
     }
 
-    async findTemphumed(request, response) {
+    async findGalerias(request, response) {
         const body = request.body
         console.log(body)
-        const query = await TemphumedQueries.find();
+        const query = await GaleriasQueries.find();
         if (query.ok) {
             return response.status(200).json({ ok: true, data: query.data })
         } else {
@@ -49,10 +49,10 @@ class TemphumedController {
         }
     }
 
-    async findOneTemphumed(request, response) {
+    async findOneGalerias(request, response) {
         const id = request.params.id
         console.log(id)
-        const query = await TemphumedQueries.findOne({
+        const query = await GaleriasQueries.findOne({
             id: id
         })
         if (query.ok) {
@@ -63,4 +63,4 @@ class TemphumedController {
     }
 }
 
-export const temphumedController = new TemphumedController();
+export const galeriasController = new GaleriasController();

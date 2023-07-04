@@ -1,10 +1,10 @@
-import { ContconsultQueries } from "../queries/contconsult.queries";
+import { ResponsablesQueries } from "../queries/responsables.queries.js";
 
-class ContconsultController {
-    async createContconsult(request, response) {
+class ResponsablesController {
+    async createResponsables(request, response) {
         const body = request.body;
         console.log(body)
-        const query = await ContconsultQueries.create(body);
+        const query = await ResponsablesQueries.create(body);
         if (query) {
             return response.status(200).json({ ok: true, data: query })
         } else {
@@ -12,10 +12,10 @@ class ContconsultController {
         }
     }
 
-    async deleteContconsult(request, response) {
+    async deleteResponsables(request, response) {
         const id = request.params.id
         console.log(id)
-        const query = await ContconsultQueries.delete({
+        const query = await ResponsablesQueries.delete({
             id: id
         });
         if (query) {
@@ -25,10 +25,10 @@ class ContconsultController {
         }
     }
 
-    async updateContconsult(request, response) {
+    async updateResponsables(request, response) {
         const body = request.body;
         const id = request.params.id
-        const query = await ContconsultQueries.update(body, {
+        const query = await ResponsablesQueries.update(body, {
             id: id
         })
         if (query.ok) {
@@ -38,10 +38,10 @@ class ContconsultController {
         }
     }
 
-    async findContconsult(request, response) {
+    async findResponsables(request, response) {
         const body = request.body
         console.log(body)
-        const query = await ContconsultQueries.find();
+        const query = await ResponsablesQueries.find();
         if (query.ok) {
             return response.status(200).json({ ok: true, data: query.data })
         } else {
@@ -49,10 +49,10 @@ class ContconsultController {
         }
     }
 
-    async findOneContconsult(request, response) {
+    async findOneResponsables(request, response) {
         const id = request.params.id
         console.log(id)
-        const query = await ContconsultQueries.findOne({
+        const query = await ResponsablesQueries.findOne({
             id: id
         })
         if (query.ok) {
@@ -63,4 +63,4 @@ class ContconsultController {
     }
 }
 
-export const contconsultController = new ContconsultController();
+export const responsablesController = new ResponsablesController();

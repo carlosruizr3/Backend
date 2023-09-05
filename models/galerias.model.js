@@ -9,20 +9,24 @@ GaleriasModel.init({
         primaryKey: true,
         autoIncrement: true
     },
-    galodep: {
-        type: DataTypes.STRING(25),
+    nomGal: {
+        type: DataTypes.STRING(80),
+        allowNull: false
+    },
+    zona: {
+        type: DataTypes.STRING(30),
+        allowNull: false
+    },
+    gerenteZona: {
+        type: DataTypes.STRING(80),
+        allowNull: false
+    },
+    jefeGal: {
+        type: DataTypes.STRING(80),
         allowNull: false
     },
     estatus: {
-        type: DataTypes.STRING(25),
-        allowNull: false
-    },
-    nomSupv: {
-        type: DataTypes.STRING(35),
-        allowNull: false
-    },
-    nomResp: {
-        type: DataTypes.STRING(35),
+        type: DataTypes.STRING(30),
         allowNull: false
     }
 }, {

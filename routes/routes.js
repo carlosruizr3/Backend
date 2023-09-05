@@ -1,16 +1,7 @@
 import express from "express";
 import { userController } from '../controllers/user.controller.js';
-import { aboutController } from "../controllers/about.controller.js";
-import { educationController } from "../controllers/education.controller.js";
-import { experienceController } from "../controllers/experience.controller.js";
-import { consmedController } from "../controllers/consmed.controller";
-import { contconsultController } from "../controllers/contconsult.controller";
-import { formventaController } from "../controllers/formventa.controller";
-import { solicfactController } from "../controllers/solicfact.controller";
-import { tempdiapersController } from "../controllers/tempdiapers.controller";
-import { temphumedController } from "../controllers/temphumed.controller";
+import { galeriasController } from "../controllers/galerias.controller.js";
 import { validateToken } from "../middlewares/accessToken.middleware.js";
-import { limpymantController } from "../controllers/limpymant.controller";
 
 
 export class Routes {
@@ -29,41 +20,13 @@ export class Routes {
     app.route('/update_user').put([validateToken.validateJWT], userController.update);
     app.post('/login', userController.login);
     
-    // About
-    app.post('/create_about', aboutController.createAbout);
-    app.delete('/delete_about/:id', aboutController.deleteAbout);
-    app.get('/find_about', aboutController.findAbout);
-    app.route('/update_about/:id').put(aboutController.updateAbout);
-    app.route('/findone_about/:id').get(aboutController.findOneAbout);
-
-    // Education
-    app.post('/create_education', educationController.createEducation);
-    app.delete('/delete_education/:id', educationController.deleteEducation);
-    app.get('/find_education', educationController.findEducation);
-    app.route('/update_education/:id').put(educationController.updateEducation);
-    app.route('/findone_education/:id').get(educationController.findOneEducation);
-
-    // Experience
-    app.post('/create_experience', experienceController.createExperience);
-    app.delete('/delete_experience/:id', experienceController.deleteExperience);
-    app.get('/find_experience', experienceController.findExperience);
-    app.route('/update_experience/:id').put(experienceController.updateExperience);
-    app.route('/findone_experience/:id').get(experienceController.findOneExperience);
-
-    // Limpieza y mantenimiento
-    app.post('/create_limpymant', limpymantController.createLimpymant);
-    app.delete('/delete_limpymant/:id', limpymantController.deleteLimpymant);
-    app.get('/find_limpymant', limpymantController.findLimpymant);
-    app.route('/update_limpymant/:id').put(limpymantController.updateLimpymant);
-    app.route('/findone_limpymant/:id').get(limpymantController.findOneLimpymant);
-
-    // Control de consultas
-    app.post('/create_contconsult', contconsultController.createContconsult);
-    app.delete('/delete_contconsult/:id', contconsultController.deleteContconsult);
-    app.get('/find_contconsult', contconsultController.findContconsult);
-    app.route('/update_contconsult/:id').put(contconsultController.updateContconsult);
-    app.route('/findone_contconsult/:id').get(contconsultController.findOneContconsult);
-
+    // Rutas galerías
+    app.post('/create_galeria', galeriasController.createGalerias);
+    app.delete('/delete_galeria/:id', galeriasController.deleteGalerias);
+    app.get('/find_galeria', galeriasController.findGalerias);
+    app.route('/update_galeria/:id').put(galeriasController.updateGalerias);
+    app.route('/findone_galeria/:id').get(galeriasController.findOneGalerias);
+    /*
     // Consumos medicos
     app.post('/create_consmed', consmedController.createConsmed);
     app.delete('/delete_consmed/:id', consmedController.deleteConsmed);
@@ -97,6 +60,6 @@ export class Routes {
     app.delete('/delete_formventa/:id', formventaController.deleteFormventa);
     app.get('/find_formventa', formventaController.findFormventa);
     app.route('/update_formventa/:id').put(formventaController.updateFormventa);
-    app.route('/findone_formventa/:id').get(formventaController.findOneFormventa);
+    app.route('/findone_formventa/:id').get(formventaController.findOneFormventa);*/
   }
 }

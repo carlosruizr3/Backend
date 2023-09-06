@@ -1,7 +1,7 @@
 import express from "express";
 import { userController } from '../controllers/user.controller.js';
-import { galeriasController } from "../controllers/galerias.controller.js";
 import { validateToken } from "../middlewares/accessToken.middleware.js";
+import { galeriasController } from "../controllers/galerias.controller.js";
 
 
 export class Routes {
@@ -13,12 +13,19 @@ export class Routes {
 
     //Users
     app.post('/data,', userController.processData);
-    app.route('/register_user').post([validateToken.validateJWT], userController.registro);
-    app.route('/find_user').post([validateToken.validateJWT], userController.find);
-    app.route('/delete_user').delete([validateToken.validateJWT], userController.delete);
-    app.route('/find_user').post([validateToken.validateJWT], userController.find);
-    app.route('/update_user').put([validateToken.validateJWT], userController.update);
+
+    app.post('/register_user', userController.registro);
     app.post('/login', userController.login);
+    app.put('/update_user', userController.update);
+    app.delete('/delete_user', userController.delete);
+    app.post('/find_user', userController.find);
+    
+    //app.route('/register_user').post([validateToken.validateJWT], userController.registro);
+    //app.route('/find_user').post([validateToken.validateJWT], userController.find);
+
+    //app.route('/delete_user').delete([validateToken.validateJWT], userController.delete);
+    //app.route('/update_user').put([validateToken.validateJWT], userController.update);
+    
     
     // Rutas galerías
     app.post('/create_galeria', galeriasController.createGalerias);
@@ -26,6 +33,9 @@ export class Routes {
     app.get('/find_galeria', galeriasController.findGalerias);
     app.route('/update_galeria/:id').put(galeriasController.updateGalerias);
     app.route('/findone_galeria/:id').get(galeriasController.findOneGalerias);
+
+
+
     /*
     // Consumos medicos
     app.post('/create_consmed', consmedController.createConsmed);

@@ -9,17 +9,29 @@ UserModel.init({
         primaryKey: true,
         autoIncrement: true
     },
+    nombre: {
+        type: DataTypes.STRING(80),
+        allowNull: false
+    },
+    zona: {
+        type: DataTypes.STRING(80),
+        allowNull: false
+    },
     usuario: {
-        type: DataTypes.STRING(35),
+        type: DataTypes.STRING(30),
+        allowNull: false
+    },
+    tipoUsuario: {
+        type: DataTypes.STRING(30),
         allowNull: false
     },
     password: {
-        type: DataTypes.STRING(300),
+        type: DataTypes.STRING(250),
         allowNull: false
-    }
+    },
 }, {
     sequelize: DatabaseConfig,
-    tableName: 'usuario',
+    tableName: 'usuarios',
     timestamps: false,
 }
 );

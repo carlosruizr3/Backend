@@ -28,7 +28,7 @@ class userQueries {
 
     async findOne(condition = {}) {
         try {
-            const query = await UserModel.findOne({ where: { username: condition.username } });
+            const query = await UserModel.findOne({ where: { usuario: condition.usuario } });
             console.log("query ejecutada", query);
             if (query) {
                 return { ok: true, data: query };
@@ -68,18 +68,18 @@ class userQueries {
         }
     }
 
-    async createUser(id, name, surname, birth, email, username, password) {
+    async createUser(id, nombre, zona, usuario, tipoUsuario, password) {
         try {
             const query = await UserModel.create({
                 id: id,
-                name: name,
-                surname: surname,
-                birth: birth,
-                email: email,
-                username: username,
+                nombre: nombre,
+                zona: zona,
+                usuario: usuario,
+                tipoUsuario: tipoUsuario,
                 password: password
             });
             if (query) {
+                console.log(query)
                 return { ok: true, data: query }
             }
         } catch (e) {

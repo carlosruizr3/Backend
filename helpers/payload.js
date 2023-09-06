@@ -16,12 +16,12 @@ export class Payload {
         let cryptr = "";
 
         const user_id = data.id;
-        const user_name = data.username;
+        const user_usuario = data.usuario;
         const role = 1;
 
         return jwt.sign({
             user_id: user_id,
-            user_name: user_name,
+            user_usuario: user_usuario,
             role: role,
         }, private_key, { algorithm: 'RS256', expiresIn: '9h' })
     }

@@ -38,12 +38,12 @@ class UserController {
         const body = req.body;
         console.log("body: ", body)
         const query = await UserQueries.findOne({
-            username: body.username,
+            usuario: body.usuario,
             password: body.password,
         })
 
         const pass = await encrypt.comparePass(body.password, query.data.password)
-        console.log("passsword", pass)
+        console.log("password", pass)
 
         if (pass) {
             try {
@@ -69,7 +69,8 @@ class UserController {
     async registro(request, response) {
         const body = request.body;
         const password = await encrypt.encrypt(body.password)
-        const query = await UserQueries.createUser(body.id, body.name, body.surname, body.birth, body.email, body.username, password)
+        const query = await UserQueries.createUser(body.id, body.nombre, body.zona, body.usuario, body.tipoUsuario, password)
+        console.log(query)
         if (query) {
             return response.status(200).json({ ok: true, data: query })
         } else {

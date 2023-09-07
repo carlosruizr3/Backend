@@ -1,4 +1,4 @@
-import { CatactivosQueries } from "../models/catactivos.model.js";
+import { CatactivosQueries } from "../queries/catactivos.queries.js";
 
 class CatactivosController {
     async createCatactivos(request, response) {

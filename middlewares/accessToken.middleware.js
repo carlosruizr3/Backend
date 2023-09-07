@@ -7,9 +7,7 @@ export class validateToken {
         let public_key = null;
 
         if (process.env.MODE != 'dev') {
-            console.log(public_key)
             public_key = fs.readFileSync(process.env.PUBLIC_KEY, 'utf8')
-            
         }
         else {
             public_key = fs.readFileSync('./keys/public.pem', 'utf8')

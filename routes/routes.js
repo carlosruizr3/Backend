@@ -2,6 +2,7 @@ import express from "express";
 import { userController } from '../controllers/user.controller.js';
 import { validateToken } from "../middlewares/accessToken.middleware.js";
 import { galeriasController } from "../controllers/galerias.controller.js";
+import { catactivosController } from "../controllers/catactivos.controller.js";
 
 
 export class Routes {
@@ -13,26 +14,32 @@ export class Routes {
 
     //Users
     app.post('/data,', userController.processData);
-
     app.post('/register_user', userController.registro);
     app.post('/login', userController.login);
     app.put('/update_user', userController.update);
     app.delete('/delete_user', userController.delete);
     app.post('/find_user', userController.find);
-    
+
     //app.route('/register_user').post([validateToken.validateJWT], userController.registro);
     //app.route('/find_user').post([validateToken.validateJWT], userController.find);
-
     //app.route('/delete_user').delete([validateToken.validateJWT], userController.delete);
     //app.route('/update_user').put([validateToken.validateJWT], userController.update);
-    
-    
+
+
     // Rutas galerías
     app.post('/create_galeria', galeriasController.createGalerias);
     app.delete('/delete_galeria/:id', galeriasController.deleteGalerias);
     app.get('/find_galeria', galeriasController.findGalerias);
     app.route('/update_galeria/:id').put(galeriasController.updateGalerias);
     app.route('/findone_galeria/:id').get(galeriasController.findOneGalerias);
+
+
+    // Rutas catalogo activos
+    app.post('/create_catactivos', catactivosController.createCatactivos);
+    app.delete('/delete_catactivos/:id', catactivosController.deleteCatactivos);
+    app.get('/find_catactivos', catactivosController.findCatactivos);
+    app.route('/update_catactivos/:id').put(catactivosController.updateCatactivos);
+    app.route('/findone_catactivos/:id').get(catactivosController.findOneCatactivos);
 
 
 

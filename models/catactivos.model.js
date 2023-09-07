@@ -2,7 +2,7 @@ import { Model, DataTypes } from "sequelize";
 import { DatabaseConfig } from "../config/database.js";
 
 export class CatactivosModel extends Model { }
-GaleriasModel.init({
+CatactivosModel.init({
     id: {
         type: DataTypes.INTEGER,
         allowNull: false,

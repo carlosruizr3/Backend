@@ -30,10 +30,10 @@ InventariosrealizadosModel.init({
         allowNull: false
     },
     existencia: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING(4),
         allowNull: false
     },
-    comentarios: {
+    comentario: {
         type: DataTypes.TEXT,
         allowNull: false
     },

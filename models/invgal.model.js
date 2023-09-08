@@ -1,8 +1,8 @@
 import { Model, DataTypes } from "sequelize";
 import { DatabaseConfig } from "../config/database.js";
 
-export class GaleriasModel extends Model { }
-GaleriasModel.init({
+export class InvgalModel extends Model { }
+InvgalModel.init({
     id: {
         type: DataTypes.INTEGER,
         allowNull: false,

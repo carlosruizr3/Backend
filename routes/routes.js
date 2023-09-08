@@ -3,6 +3,10 @@ import { userController } from '../controllers/user.controller.js';
 import { validateToken } from "../middlewares/accessToken.middleware.js";
 import { galeriasController } from "../controllers/galerias.controller.js";
 import { catactivosController } from "../controllers/catactivos.controller.js";
+import { invalmacenController } from "../controllers/invalmacen.controller.js";
+import { inventariosrealizadosController } from "../controllers/inventariosrealizados.controller.js";
+import { invgalController } from "../controllers/invgal.controller.js"
+import { stocksController } from "../controllers/stocks.controller.js"
 
 
 export class Routes {
@@ -42,6 +46,36 @@ export class Routes {
     app.route('/findone_catactivos/:id').get(catactivosController.findOneCatactivos);
 
 
+    // Rutas inventario almacen
+    app.post('/create_invalmacen', invalmacenController.createInvalmacen);
+    app.delete('/delete_invalmacen/:id', invalmacenController.deleteInvalmacen);
+    app.get('/find_invalmacen', invalmacenController.findInvalmacen);
+    app.route('/update_invalmacen/:id').put(invalmacenController.updateInvalmacen);
+    app.route('/findone_invalmacen/:id').get(invalmacenController.findOneInvalmacen);
+
+
+    // Rutas inventarios realizados
+    app.post('/create_inventariosrealizados', inventariosrealizadosController.createInventariosrealizados);
+    app.delete('/delete_inventariosrealizados/:id', inventariosrealizadosController.deleteInventariosrealizados);
+    app.get('/find_inventariosrealizados', inventariosrealizadosController.findInventariosrealizados);
+    app.route('/update_inventariosrealizados/:id').put(inventariosrealizadosController.updateInventariosrealizados);
+    app.route('/findone_inventariosrealizados/:id').get(inventariosrealizadosController.findOneInventariosrealizados);
+
+
+    // Rutas inventario galería
+    app.post('/create_invgal', invgalController.createInvgal);
+    app.delete('/delete_invgal/:id', invgalController.deleteInvgal);
+    app.get('/find_invgal', invgalController.findInvgal);
+    app.route('/update_invgal/:id').put(invgalController.updateInvgal);
+    app.route('/findone_invgal/:id').get(invgalController.findOneInvgal);
+
+
+    // Rutas stocks
+    app.post('/create_stocks', stocksController.createStocks);
+    app.delete('/delete_stocks/:id', stocksController.deleteStocks);
+    app.get('/find_stocks', stocksController.findStocks);
+    app.route('/update_stocks/:id').put(stocksController.updateStocks);
+    app.route('/findone_stocks/:id').get(stocksController.findOneStocks);
 
     /*
     // Consumos medicos

@@ -12,7 +12,7 @@ class StocksController {
         }
     }
 
-    async deletestocks(request, response) {
+    async deleteStocks(request, response) {
         const id = request.params.id
         console.log(id)
         const query = await StocksQueries.delete({
@@ -25,7 +25,7 @@ class StocksController {
         }
     }
 
-    async updatestocks(request, response) {
+    async updateStocks(request, response) {
         const body = request.body;
         const id = request.params.id
         const query = await StocksQueries.update(body, {
